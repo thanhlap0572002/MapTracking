@@ -38,7 +38,7 @@ public class AlertOverlay extends Overlay {
     private DatabaseReference databaseReference;
 
     private WebView webView;
-    private IPCamera ipCamera;
+//    private IPCamera ipCamera;
 
     public AlertOverlay(Context context, Location location) {
         super(context);
@@ -55,7 +55,7 @@ public class AlertOverlay extends Overlay {
         if (isAlertNeeded() && isInitialAlertShown) {
             showDialog();
             startFlashingScreen();
-            ipCamera.play();
+//            ipCamera.play();
         } else {
             dismissDialog();
             stopFlashingScreen();
@@ -110,8 +110,8 @@ public class AlertOverlay extends Overlay {
             }
         });
 
-        ipCamera = new IPCamera("192.168.1.41", "/cam-hi.jpg", webView);
-        ipCamera.play();
+//        ipCamera = new IPCamera("192.168.1.41", "/cam-hi.jpg", webView);
+//        ipCamera.play();
         dialog.show();
     }
 

@@ -34,8 +34,19 @@
                 <WebView
                     android:id="@+id/webview"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:rotation="90"/>
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/timeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Thời gian sẽ hiện ở đây"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:paddingTop="16dp" />
 
             <Button
                 android:id="@+id/button"

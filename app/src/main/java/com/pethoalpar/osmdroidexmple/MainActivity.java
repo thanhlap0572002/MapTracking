@@ -14,11 +14,14 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.view.Gravity;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -66,9 +69,13 @@ public class MainActivity extends AppCompatActivity {
     private int currentLocationCount = 1;
 
     private PopupWindow popupWindow;
-    private IPCamera ipCamera;
-    private String ipAddress = "192.168.1.41";
-    private String cameraStreamPath = "/cam-hi.jpg";
+    private WebView webView;
+    private String ipAddress = "192.168.100.6";
+    private String cameraStreamPath = "/video";
+
+    private TextView timeTextView;
+    private Handler timeHandler;
+    private Runnable timeRunnable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,9 +197,22 @@ public class MainActivity extends AppCompatActivity {
         popupWindow.setFocusable(true);
         popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
 
-        WebView webView = popupView.findViewById(R.id.webview);
-        ipCamera = new IPCamera(ipAddress, cameraStreamPath, webView);
-        ipCamera.startStreaming();
+        webView = popupView.findViewById(R.id.webview);
+        timeTextView = popupView.findViewById(R.id.timeTextView);
+
+        setupWebView(webView);
+        webView.loadUrl("http://" + ipAddress + cameraStreamPath);
+
+        // Cập nhật thời gian thực
+        timeHandler = new Handler();
+        timeRunnable = new Runnable() {
+            @Override
+            public void run() {
+                updateTime();
+                timeHandler.postDelayed(this, 1000); // Cập nhật mỗi giây
+            }
+        };
+        timeHandler.post(timeRunnable);
 
         Button closeButton = popupView.findViewById(R.id.button);
         closeButton.setOnClickListener(new View.OnClickListener() {
@@ -201,11 +221,24 @@ public class MainActivity extends AppCompatActivity {
                 if (popupWindow != null && popupWindow.isShowing()) {
                     popupWindow.dismiss();
                 }
-                if (ipCamera != null) {
-                    ipCamera.release();
+                if (timeHandler != null) {
+                    timeHandler.removeCallbacks(timeRunnable);
                 }
             }
         });
+    }
+
+    private void setupWebView(WebView webView) {
+        webView.setWebViewClient(new WebViewClient());
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setUseWideViewPort(true);
+    }
+
+    private void updateTime() {
+        String currentTime = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        timeTextView.setText(currentTime);
     }
 
     private boolean isAppInBackground() {

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.arthenica:mobile-ffmpeg-full:4.4.LTS@aar">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../andoird/mymap/caches/transforms-3/52f81407602072c855abbc8ce285072f/transformed/jetified-mobile-ffmpeg-full-4.4.LTS/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../../../andoird/mymap/caches/transforms-3/52f81407602072c855abbc8ce285072f/transformed/jetified-mobile-ffmpeg-full-4.4.LTS/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../andoird/mymap/caches/modules-2/files-2.1/com.arthenica/mobile-ffmpeg-full/4.4.LTS/995c6f3d5415ad263892fc522f3869de248ad5ad/mobile-ffmpeg-full-4.4.LTS-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../andoird/mymap/caches/modules-2/files-2.1/com.arthenica/mobile-ffmpeg-full/4.4.LTS/5ebcfbfac7bfee6d38036dd79c5d6eb9aad892c7/mobile-ffmpeg-full-4.4.LTS-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

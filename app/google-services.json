@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "124328090959",
+    "firebase_url": "https://longlatdata-default-rtdb.firebaseio.com",
+    "project_id": "longlatdata",
+    "storage_bucket": "longlatdata.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:124328090959:android:91d013adc9f6917000f93a",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "124328090959-0e0bv3j6kpp6fft908frrlkfgrnff6d4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0S7bKN2k91ME45n1i4ANv_IAKaCO1xjg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "124328090959-0e0bv3j6kpp6fft908frrlkfgrnff6d4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:124328090959:android:443ce5789f0f00ae00f93a",
+        "android_client_info": {
+          "package_name": "com.pethoalpar.osmdroidexmple"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "124328090959-0e0bv3j6kpp6fft908frrlkfgrnff6d4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0S7bKN2k91ME45n1i4ANv_IAKaCO1xjg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "124328090959-0e0bv3j6kpp6fft908frrlkfgrnff6d4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

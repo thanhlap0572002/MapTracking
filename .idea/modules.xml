@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/OsmDroidExmple.iml" filepath="$PROJECT_DIR$/.idea/modules/OsmDroidExmple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/OsmDroidExmple.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/OsmDroidExmple.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/OsmDroidExmple.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/OsmDroidExmple.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/OsmDroidExmple.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/OsmDroidExmple.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/OsmDroidExmple.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/OsmDroidExmple.app.unitTest.iml" />
+    </modules>
+  </component>
+</project>

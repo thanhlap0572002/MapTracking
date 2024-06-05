@@ -46,5 +46,6 @@ dependencies {
     implementation 'org.osmdroid:osmdroid-wms:6.1.10'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.arthenica:mobile-ffmpeg-full:4.4.LTS'
+    implementation 'com.google.android.exoplayer:exoplayer:2.15.0'
 
 }

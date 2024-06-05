@@ -12,18 +12,17 @@ import android.media.MediaPlayer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.TextureView;
 import android.view.View;
 import android.view.Window;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Overlay;
-
 
 public class AlertOverlay extends Overlay {
     private Context context;
@@ -38,22 +37,15 @@ public class AlertOverlay extends Overlay {
     private boolean isInitialAlertShown = false;
     private DatabaseReference databaseReference;
 
-    private TextureView textureView;
+    private WebView webView;
     private IPCamera ipCamera;
-
-
-
 
     public AlertOverlay(Context context, Location location) {
         super(context);
         this.context = context;
         this.location = location;
         handler = new Handler();
-//        textureView = dialog.findViewById(R.id.textureView);
-      //  ipCamera = new IPCamera("192.168.17.103", "/cam-hi.jpg", textureView); // Thay đổi địa chỉ IP tương ứn
-
     }
-
 
     @Override
     public void draw(Canvas canvas, MapView mapView, boolean shadow) {
@@ -82,15 +74,15 @@ public class AlertOverlay extends Overlay {
         }
         return true;
     }
-    public void updatePopupText(String text) {
-        if (dialog != null && dialog.isShowing()) {
-            TextView textView = dialog.findViewById(R.id.sau);
-            textView.setText(text);
-        }
-    }
+
+//    public void updatePopupText(String text) {
+//        if (dialog != null && dialog.isShowing()) {
+//            TextView textView = dialog.findViewById(R.id.sau);
+//            textView.setText(text);
+//        }
+//    }
 
     public void showDialog() {
-
         // Khởi tạo Dialog
         dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -99,16 +91,15 @@ public class AlertOverlay extends Overlay {
         dialog.getWindow().setLayout(1000, 1500);
         dialog.getWindow().setGravity(Gravity.CENTER);
 
-
-
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        textureView = dialog.findViewById(R.id.textureView);
-
-        if (textureView != null) {
-            Log.d("AlertOverlay", "TextureView found and initialized successfully");
+        webView = dialog.findViewById(R.id.webview);
+        if (webView != null) {
+            webView.setWebViewClient(new WebViewClient());
+            webView.getSettings().setJavaScriptEnabled(true);
+            Log.d("AlertOverlay", "WebView found and initialized successfully");
         } else {
-            Log.e("AlertOverlay", "TextureView is null or not found in the layout");
+            Log.e("AlertOverlay", "WebView is null or not found in the layout");
         }
 
         Button closeButton = dialog.findViewById(R.id.button);
@@ -119,10 +110,9 @@ public class AlertOverlay extends Overlay {
             }
         });
 
-//        ipCamera = new IPCamera("192.168.17.103", "/cam-hi.jpg", textureView);
-//        ipCamera.play();
-//        dialog.show();
-
+        ipCamera = new IPCamera("192.168.1.41", "/cam-hi.jpg", webView);
+        ipCamera.play();
+        dialog.show();
     }
 
     private void dismissDialog() {
